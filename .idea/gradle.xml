@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/interfaces" />
             <option value="$PROJECT_DIR$/repositories" />
+            <option value="$PROJECT_DIR$/splash" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
