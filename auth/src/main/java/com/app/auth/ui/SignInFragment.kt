@@ -1,13 +1,9 @@
 package com.app.auth.ui
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.viewModels
 import com.app.auth.BuildConfig
 import com.app.auth.callback.SigninCallback
@@ -18,8 +14,6 @@ import com.app.base.extensions.hideProgress
 import com.app.base.extensions.showProgress
 import com.app.base.ui.BaseFragment
 import com.app.interfaces.models.common.ApiStatus
-import com.app.interfaces.models.common.DocumentUploadStatus
-import com.app.interfaces.models.common.Message
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint class SignInFragment : BaseFragment(), SigninViewCallack {

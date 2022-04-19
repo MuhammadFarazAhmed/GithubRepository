@@ -13,7 +13,6 @@ import androidx.annotation.ColorInt
 import androidx.annotation.IdRes
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
-import com.app.base.utils.ExpandableTextView
 import com.app.base.utils.RoundedCornersTransformation
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
@@ -136,13 +135,6 @@ fun setHtmlText(textView: TextView, resId: Int?) {
         textView.text =
             HtmlCompat.fromHtml(textView.context.getString(resId), HtmlCompat.FROM_HTML_MODE_LEGACY)
 
-    }
-}
-
-@BindingAdapter("expandableText")
-fun setExpandableText(textView: ExpandableTextView, text: String) {
-    if (!TextUtils.isEmpty(text)) {
-        textView.text = text
     }
 }
 

@@ -18,10 +18,38 @@
     <color name="close_red">#FA6557</color>
 
 
+    <color name="subtext_color_with_light_bg">@color/hint_color_on_white</color>
+
+    <color name="text_color_normal">@color/black</color>
+    <color name="text_color_opposite">@color/white</color>
+    <color name="tab_normal_color">#E7E7E7</color>
+    <color name="label_color_for_field">@color/hint_color_on_white</color>
+    <color name="error_label_clr_for_field">@color/colorAccent</color>
+
+    <!---->
+    <color name="background_color_blue">@color/background_color_light</color>
+    <color name="background_color_light">#FFEBEE</color>
+    <color name="background_color_dark">@color/black</color>
+
+    <color name="background_color_light_gray">#FFF7F7F7</color>
+    <color name="background_color_gray">@color/background_color_light_gray</color>
     <color name="line_color_on_gray_bg">#80BEBEBE</color>
     <color name="light_grey_bg_color">#FFE7E7E7</color>
 
+    <color name="dark_grey_bg_on_dark_bg">#2B2B2B</color>
+    <color name="grey_bg_on_dark_bg">#FF323232</color>
+    <color name="toolbar_title_color">@color/black</color>
+    <color name="job_item_bg_color">@color/white</color>
+    <color name="colorBlue">#FF25B1E4</color>
+    <color name="colorBlue30">#3025B1E4</color>
 
+    <color name="edit_text_bg_on_white">#FFF7F7F7</color>
+    <color name="hint_color">#BEBEBE</color>
+    <color name="hint_color_on_white">#FF909090</color>
+
+    <color name="image_view_bg">#212121</color>
+    <color name="orange">#FB8C00</color>
+    <color name="another_blue">#3949AB</color>
     <color name="green_">#00897B</color>
 
 

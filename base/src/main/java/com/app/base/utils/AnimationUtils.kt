@@ -1,15 +1,13 @@
 package com.app.base.utils
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ArgbEvaluator
-import android.animation.ValueAnimator
+import android.animation.*
 import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
 import android.view.View
 import android.view.ViewAnimationUtils
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import com.app.base.Dismissible
 
 object AnimationUtils {
 
