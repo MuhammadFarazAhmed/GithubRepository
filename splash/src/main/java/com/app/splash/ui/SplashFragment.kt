@@ -1,25 +1,17 @@
 package com.app.splash.ui
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.app.base.Navigator
 import com.app.base.ui.BaseFragment
-import com.app.interfaces.models.common.ApiStatus
-import com.app.interfaces.models.common.DocumentUploadStatus
-import com.app.interfaces.models.common.Message
 import com.app.splash.callback.SplashCallback
 import com.app.splash.callback.SplashViewCallback
 import com.app.splash.databinding.SplashFragmentBinding
 import com.app.splash.vm.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint class SplashFragment : BaseFragment(), SplashViewCallback {
