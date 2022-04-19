@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="blue">#2196f3</color>
+    <color name="blueLight">#6ec6ff</color>
+    <color name="blueDark">#0069c0</color>
+    <color name="red">#AF3436</color>
+    <color name="redLight">#AC5C5D</color>
+    <color name="redDark">#852829</color>
+
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="red_error">#d50000</color>
+    <color name="close_red">#FA6557</color>
+
+
+    <color name="line_color_on_gray_bg">#80BEBEBE</color>
+    <color name="light_grey_bg_color">#FFE7E7E7</color>
+
+
+    <color name="green_">#00897B</color>
+
+
+</resources>

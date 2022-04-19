@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="vm"
+                type="com.app.base.vm.PagedViewModel"/>
+
+        <variable
+                name="callback"
+                type="com.app.base.callback.SimpleListViewCallback"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/status_bar_margin">
+
+        <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentInsetStartWithNavigation="0dp"
+                android:elevation="4dp"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                app:contentInsetStart="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="55dp"
+                        android:paddingStart="65dp"
+                        android:paddingEnd="65dp"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/text_color_normal"
+                        android:textSize="18sp"
+                        app:autoSizeMaxTextSize="15sp"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="11sp"
+                        app:autoSizeStepGranularity="1sp"
+                        tools:text="This is the title"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@{vm.title}"/>
+
+                <ImageView
+                        android:id="@+id/bDisagree"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:padding="18dp"
+                        android:layout_alignParentStart="true"
+                        android:visibility="@{vm.isBackButtonVisible ? View.VISIBLE : View.GONE}"
+                        android:background="?selectableItemBackground"
+                        android:src="@drawable/ic_back_arrow"
+                        android:onClick="@{()->callback.onBackPressed()}"
+                        android:layout_marginStart="6dp"/>
+
+                <Button
+                        android:id="@+id/bNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:padding="16dp"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="@{vm.isSaveButtonVisible ? View.VISIBLE : View.GONE}"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:onClick="@{()->callback.onSaveButtonClicked()}"
+                        android:text="@string/save"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/colorBlue"/>
+
+                <!--   <View
+                           android:id="@+id/vLineToolbar"
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:layout_below="@id/tvTitle"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                           android:background="#D3E0E4"/>-->
+
+            </RelativeLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/srlRefresh"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSelectableList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <include
+                android:id="@+id/llStatus"
+                layout="@layout/network_list_state_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:listStateProgress="@{vm.progress}"
+                app:listError="@{vm.error}"
+                app:listErrorType="@{vm.errorType}"
+                app:listVisibilityError="@{vm.listErrorViewVisible}"
+                app:callback="@{callback}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+~ Copyright (C) 2019 The Android Open Source Project
+~
+~ Licensed under the Apache License, Version 2.0 (the "License");
+~ you may not use this file except in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~      http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing, software
+~ distributed under the License is distributed on an "AS IS" BASIS,
+~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~ See the License for the specific language governing permissions and
+~ limitations under the License.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Components-->
+
+    <!--Bottom Sheets-->
+    <style name="ThemeOverlay.MyTheme.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.MyTheme.BottomSheet.Modal</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/Widget.MyTheme.BottomSheet.Modal</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
+    </style>
+
+    <style name="Widget.MyTheme.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="behavior_skipCollapsed">true</item>
+    </style>
+
+    <!--Navigation Drawer-->
+    <style name="Widget.MyTheme.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemTextAppearance">?attr/textAppearanceBody2</item>
+    </style>
+
+
+    <style name="Widget.MyTheme.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavigationViewTextInactive</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavigationViewTextActive</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.AppTheme.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.BottomNavigationView" parent="@style/ThemeOverlay.MaterialComponents">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorSurface">@color/red</item>
+    </style>
+
+    <style name="LineStyle" parent="">
+        <!--Your custom type style here-->
+        <item name="android:alpha">1.0</item>
+        <item name="android:background">#D1D1D1</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/bg_spinner</item>
+        <item name="android:theme">@style/SpinnerTheme</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="SpinnerStyle.Orange" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/bg_spinner_orange</item>
+        <item name="android:theme">@style/SpinnerTheme</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="Theme.AppCompat.DayNight">
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+
+    <style name="Widget.MyTheme.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.SmallComponent</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button.TextButton.Blue" parent="Widget.MyTheme.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Button.Blue</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <!-- <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Button.TextButton</item>-->
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.SmallComponent</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button.OutlinedButton.Blue" parent="Widget.MyTheme.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Button.Blue</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button.OutlinedButton.Orange" parent="Widget.MyTheme.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Button.Orange</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button.OutlinedButton.Green" parent="Widget.MyTheme.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Button.Green</item>
+    </style>
+
+    <style name="Widget.MyTheme.Button" parent="Widget.MaterialComponents.Button">
+        <!--<item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Button</item>-->
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MyTheme.SmallComponent</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.Button.Blue" parent="">
+        <item name="colorPrimary">@color/blue</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.Button.Orange" parent="">
+        <item name="colorPrimary">@color/orange</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.Button.Green" parent="">
+        <item name="colorPrimary">@color/green_</item>
+    </style>
+    <!--
+
+    <style name="ThemeOverlay.MyTheme.Button" parent="">
+        <item name="colorPrimary">@color/shrine_pink_100</item>
+        <item name="colorOnPrimary">@color/shrine_pink_900</item>
+    </style>-->
+
+    <style name="Widget.MyTheme.RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton</item>
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.Button.Radio</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ThemeOverlay.App.RadioButton" parent="">
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSecondary">@color/blue</item>
+    </style>
+
+
+    <style name="Widget.MyTheme.Chip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipStrokeWidth">1px</item>
+        <item name="chipCornerRadius">30dp</item>
+        <item name="chipStrokeColor">@color/light_grey_bg_color</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+        <!-- <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Chip</item>-->
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.ChipText</item>
+        <item name="chipMinTouchTargetSize">2dp</item>
+        <item name="chipMinHeight">18dp</item>
+        <item name="chipStartPadding">1dp</item>
+        <item name="chipEndPadding">1dp</item>
+    </style>
+
+    <style name="Widget.MyTheme.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="shapeAppearanceOverlay">@null</item>
+        <item name="checkedIconEnabled">false</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="checkedIcon">@null</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Chip.Choice</item>
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.ChipText.Choice</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.Chip.Choice" parent="">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+
+    <style name="Widget.MyTheme.Chip.Choice.Orange" parent="Widget.MyTheme.Chip.Choice">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Chip.Choice.Orange</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.Chip.Choice.Orange" parent="">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorSecondary">@color/orange</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+    <style name="Widget.MyTheme.Chip.Choice.Green" parent="Widget.MyTheme.Chip.Choice">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.Chip.Choice.Green</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.Chip.Choice.Green" parent="">
+        <item name="colorPrimary">@color/green_</item>
+        <item name="colorSecondary">@color/green_</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+
+    <style name="Widget.MyTheme.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyTheme.TabLayout</item>
+        <item name="tabTextAppearance">@style/TextAppearance.MyTheme.Tabs</item>
+    </style>
+
+    <style name="ThemeOverlay.MyTheme.TabLayout" parent="">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+
+    <style name="Widget.MyTheme.RadioButton.Orange" parent="Widget.MyTheme.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton.Orange</item>
+    </style>
+
+    <style name="ThemeOverlay.App.RadioButton.Orange" parent="">
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSecondary">@color/orange</item>
+    </style>
+
+    <style name="Widget.MyTheme.RadioButton.Green" parent="Widget.MyTheme.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton.Green</item>
+    </style>
+
+    <style name="ThemeOverlay.App.RadioButton.Green" parent="">
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSecondary">@color/green_</item>
+    </style>
+
+    <style name="Widget.MyTheme.RadioButton.Red" parent="Widget.MyTheme.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton.Red</item>
+    </style>
+
+    <style name="ThemeOverlay.App.RadioButton.Red" parent="">
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSecondary">@color/red</item>
+    </style>
+
+    <style name="Widget.MyTheme.RadioButton.Gray" parent="Widget.MyTheme.RadioButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.RadioButton.Gray</item>
+    </style>
+
+    <style name="ThemeOverlay.App.RadioButton.Gray" parent="">
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSecondary">@color/line_color_on_gray_bg</item>
+    </style>
+</resources>
