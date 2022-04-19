@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <string-array name="site_types">
+        <item>@string/all_types</item>
+        <item>@string/house_apartment</item>
+        <item>@string/supermarket</item>
+        <item>@string/restaurant</item>
+        <item>@string/bakery</item>
+        <item>@string/mall</item>
+        <item>@string/single_office</item>
+        <item>@string/multi_story_office</item>
+        <item>@string/warehouse</item>
+        <item>@string/mart_shop</item>
+        <item>@string/hotels</item>
+        <item>@string/hospitals</item>
+        <item>@string/pharmacy</item>
+        <item>@string/manufacturing_factory</item>
+        <item>@string/school</item>
+        <item>@string/community</item>
+        <item>@string/store_shop</item>
+    </string-array>
+
+    <!--0 => General Spraying 1 => IRS 2 => Gel Application 3 => Cracks & Crevices Treatment 4 => Spot Treatment 5 => Fumigation 6 => ULV Fogging 7 => Thermal Fogging-->
+    <string-array name="application_methods">
+        <item>General Spraying</item>
+        <item>IRS</item>
+        <item>Gel Application</item>
+        <item>Cracks &amp; Crevices Treatment</item>
+        <item>Spot Treatment</item>
+        <item>Fumigation</item>
+        <item>ULV Fogging</item>
+        <item>Thermal Fogging</item>
+    </string-array>
+
+    <string-array name="cities">
+        <item>All Cities</item>
+        <item>Ahmadpur East</item>
+        <item>Ahmed Nager Chatha</item>
+        <item>Ali Khan Abad</item>
+        <item>Alipur</item>
+        <item>Arifwala</item>
+        <item>Attock</item>
+        <item>Bhera</item>
+        <item>Bhalwal</item>
+        <item>Bahawalnagar</item>
+        <item>Bahawalpur</item>
+        <item>Bhakkar</item>
+        <item>Burewala</item>
+        <item>Chenab Nagar</item>
+        <item>Chillianwala</item>
+        <item>Choa Saidanshah</item>
+        <item>Chakwal</item>
+        <item>Chak Jhumra</item>
+        <item>Chichawatni</item>
+        <item>Chiniot</item>
+        <item>Chishtian</item>
+        <item>Chunian</item>
+        <item>Dajkot</item>
+        <item>Daska</item>
+        <item>Davispur</item>
+        <item>Darya Khan</item>
+        <item>Dera Ghazi Khan</item>
+        <item>Dhaular</item>
+        <item>Dina</item>
+        <item>Dinga</item>
+        <item>Dhudial Chakwal</item>
+        <item>Dipalpur</item>
+        <item>Faisalabad</item>
+        <item>Fateh Jang</item>
+        <item>Ghakhar Mandi</item>
+        <item>Gojra</item>
+        <item>Gujranwala</item>
+        <item>Gujrat</item>
+        <item>Gujar Khan</item>
+        <item>Harappa</item>
+        <item>Hafizabad</item>
+        <item>Haroonabad</item>
+        <item>Hasilpur</item>
+        <item>Haveli Lakha</item>
+        <item>Islamabad</item>
+        <item>Jalalpur Jattan</item>
+        <item>Jampur</item>
+        <item>Jaranwala</item>
+        <item>Jhang</item>
+        <item>Jhelum</item>
+        <item>Jauharabad</item>
+        <item>Kallar Syedan</item>
+        <item>Kalabagh</item>
+        <item>Karor Lal Esan</item>
+        <item>Karachi</item>
+        <item>Kasur</item>
+        <item>Kamalia</item>
+        <item>Kāmoke</item>
+        <item>Khanewal</item>
+        <item>Khanpur</item>
+        <item>Khanqah Sharif</item>
+        <item>Kharian</item>
+        <item>Khushab</item>
+        <item>Kot Adu</item>
+        <item>Lahore</item>
+        <item>Lalamusa</item>
+        <item>Layyah</item>
+        <item>Lawa Chakwal</item>
+        <item>Liaquat Pur</item>
+        <item>Lodhran</item>
+        <item>Malakwal</item>
+        <item>Mamoori</item>
+        <item>Mailsi</item>
+        <item>Mandi Bahauddin</item>
+        <item>Mian Channu</item>
+        <item>Mianwali</item>
+        <item>Miani</item>
+        <item>Multan</item>
+        <item>Murree</item>
+        <item>Muridke</item>
+        <item>Mianwali Bangla</item>
+        <item>Muzaffargarh</item>
+        <item>Narowal</item>
+        <item>Nankana Sahib</item>
+        <item>Okara</item>
+        <item>Pakpattan</item>
+        <item>Pattoki</item>
+        <item>Pindi Bhattian</item>
+        <item>Pind Dadan Khan</item>
+        <item>Pir Mahal</item>
+        <item>Qaimpur</item>
+        <item>Qila Didar Singh</item>
+        <item>Raiwind</item>
+        <item>Rajanpur</item>
+        <item>Rahim Yar Khan</item>
+        <item>Rawalpindi</item>
+        <item>Renala Khurd</item>
+        <item>Sadiqabad</item>
+        <item>Sagri</item>
+        <item>Sahiwal</item>
+        <item>Sambrial</item>
+        <item>Samundri</item>
+        <item>Sangla Hill</item>
+        <item>Sarai Alamgir</item>
+        <item>Sargodha</item>
+        <item>Shakargarh</item>
+        <item>Sheikhupura</item>
+        <item>Shujaabad</item>
+        <item>Sialkot</item>
+        <item>Sohawa</item>
+        <item>Soianwala</item>
+        <item>Siranwali</item>
+        <item>Tandlianwala</item>
+        <item>Talagang</item>
+        <item>Taxila</item>
+        <item>Toba Tek Singh</item>
+        <item>Vehari</item>
+        <item>Wah Cantonment</item>
+        <item>Wazirabad</item>
+        <item>Yazman</item>
+        <item>Zafarwal</item>
+    </string-array>
+</resources>
