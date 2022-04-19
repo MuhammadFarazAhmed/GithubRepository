@@ -1,8 +1,7 @@
-package com.app.upmworker.di
+package com.consoli.githubrepository.di
 
 import com.app.interfaces.base.ParseErrors
 import com.app.interfaces.repository.*
-import com.app.repositories.local.dao.CommonDao
 import com.app.repositories.remote.api.*
 import com.app.repositories.repos.*
 import com.app.repositories.utils.PreferencesHelper
@@ -10,6 +9,7 @@ import com.consoli.githubrepository.di.qualifier.Base
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -21,7 +21,7 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideAuthApi(@Base retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
-
+    
     @Provides
     @Singleton
     fun provideCommonApi(@Base retrofit: Retrofit): CommonApi =
@@ -31,11 +31,23 @@ class RepositoryModule {
     @Singleton
     fun provideAuthRepository(
         authApi: AuthApi,
-        commonDao: CommonDao,
         preferencesHelper: PreferencesHelper,
         parseErrors: ParseErrors
     ): AuthRepository =
-        AuthRepositoryImp(authApi, commonDao, preferencesHelper, parseErrors)
+        AuthRepositoryImp(authApi, preferencesHelper, parseErrors)
+    
+    @Provides
+    @Singleton
+    fun provideUserApi(@Base retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+    
+    @Provides
+    @Singleton
+    fun provideUserRepository(
+        userApi: UserApi,
+        preferencesHelper: PreferencesHelper,
+        parseErrors: ParseErrors
+                             ): UserRepository =
+            UserRepositoryImp(userApi, preferencesHelper, parseErrors)
     
 }
 

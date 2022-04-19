@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="error"
+            type="String" />
+
+        <variable
+            name="errorType"
+            type="Integer" />
+
+        <variable
+            name="endpointTag"
+            type="String" />
+
+        <variable
+            name="callback"
+            type="com.app.base.utils.NetworkStateDialogCallback" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/job_item_bg_color"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:id="@+id/llNetworkStateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="?selectableItemBackground"
+                android:onClick="@{()-> callback.onErrorDialogClosed(endpointTag)}"
+                android:padding="16dp"
+                android:src="@drawable/ic_close"
+                app:tint="@color/line_color_on_gray_bg" />
+
+            <TextView
+                android:id="@+id/tvErrorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@{error}"
+                android:textColor="@color/text_color_normal"
+                tools:text="Unable to connect to internet please try again in few minutes" />
+
+            <Button
+                android:id="@+id/bRetryButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="12dp"
+                android:onClick="@{() -> callback.onErrorDialogRetryButtonClicked(endpointTag)}"
+                android:text="@string/retry"
+                android:textColor="@color/colorBlue" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

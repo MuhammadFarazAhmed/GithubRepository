@@ -38,12 +38,17 @@ import javax.inject.Singleton
     }
     
     @Provides @Base @Singleton internal fun okHttpClient(loggingInterceptor: HttpLoggingInterceptor,
-                                                         @Base keyAuth: ApiKeyAuth,
+                                                         changeBaseUrl: ChangeBaseUrl,
                                                          sessionAuth: SessionAuth): OkHttpClient {
         return OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS)
-                .addInterceptor(keyAuth).addInterceptor(sessionAuth)
+                .addInterceptor(changeBaseUrl).addInterceptor(sessionAuth)
                 .addInterceptor(loggingInterceptor).build()
+    }
+    
+    @Provides @Singleton
+    internal fun changeBaseUrl(preferencesHelper: PreferencesHelper): ChangeBaseUrl {
+        return ChangeBaseUrl(preferencesHelper)
     }
     
     @Provides @Singleton
@@ -65,7 +70,7 @@ import javax.inject.Singleton
     
     @Provides @Base @Singleton internal fun apiKeyAuth(): ApiKeyAuth {
         val apiKeyAuth = ApiKeyAuth("header", "api_key")
-       // apiKeyAuth.apiKey = BuildConfig.API_KEY
+        // apiKeyAuth.apiKey = BuildConfig.API_KEY
         return apiKeyAuth
     }
     

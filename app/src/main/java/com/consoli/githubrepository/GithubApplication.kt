@@ -11,7 +11,9 @@ import androidx.core.app.TaskStackBuilder
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.multidex.MultiDex
 import androidx.work.Configuration
+import com.app.auth.ui.AuthActivity
 import com.app.base.Navigator
+import com.app.home.ui.HomeActivity
 import com.app.repositories.utils.PreferencesHelper
 import com.app.splash.ui.SplashActivity
 import com.consoli.githubrepository.di.qualifier.Base
@@ -70,6 +72,8 @@ class GithubApplication : Application(), Configuration.Provider, Navigator {
         val intent = Intent()
         when (modules) {
             Navigator.Modules.SPLASH -> intent.setClass(activity, SplashActivity::class.java)
+            Navigator.Modules.AUTH -> intent.setClass(activity, AuthActivity::class.java)
+            Navigator.Modules.HOME -> intent.setClass(activity, HomeActivity::class.java)
         }
         if (bundle != null) {
             intent.putExtra(Navigator.EXTRAS, bundle)

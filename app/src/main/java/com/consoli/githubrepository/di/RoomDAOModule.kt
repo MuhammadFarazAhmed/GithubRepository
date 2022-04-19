@@ -1,4 +1,4 @@
-package com.app.upmworker.di
+package com.consoli.githubrepository.di
 
 import com.app.repositories.local.GithubRepositoryDB
 import com.app.repositories.local.dao.*
