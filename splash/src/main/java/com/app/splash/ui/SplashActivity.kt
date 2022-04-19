@@ -32,58 +32,11 @@ class SplashActivity : BaseActivity(), SplashCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       /* requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )*/
 
         binding = DataBindingUtil.setContentView(
             this,
             R.layout.activity_splash
         )
-        val data: Uri? = intent.data
-        if (data != null) {
-            val pathSegments: List<String> = data.pathSegments
-
-            val d = pathSegments.indexOf("detail")
-            val p = pathSegments.indexOf("profile")
-            if (d != -1) {
-                val jobId = if (d + 1 < pathSegments.size) pathSegments[d + 1] else null
-                jobId?.let {
-                    navigator.startModule(
-                        this,
-                        Navigator.Modules.HOME,
-                        bundleOf(
-                            FROM_DEEP_LINK to true,
-                            NOTIFICATION_TYPE to 1,
-                            RESOURCE_ID to jobId.toInt()
-                        ),
-                        null,
-                        true
-                    )
-                    finish()
-                }
-            } else if (p != -1) {
-                val profileId = if (p + 1 < pathSegments.size) pathSegments[p + 1] else null
-                profileId?.let {
-                    navigator.startModule(
-                        this,
-                        Navigator.Modules.PROFILE_SETTINGS,
-                        bundleOf(
-                            FROM_DEEP_LINK to true,
-                            ARG_GOTO to 3,
-                            // Navigator.PROFILE_USER to UserShort(profileId.toInt(), "", "", null)
-                        ),
-                        null,
-                        true
-                    )
-                    finish()
-                }
-            }
-            Log.v("aydo.app", "path $data")
-            Log.v("aydo.app", "params $pathSegments")
-        }
 
         addFragment(R.id.flSplash, SplashFragment.newInstance())
     }

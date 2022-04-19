@@ -4,6 +4,7 @@ import androidx.work.WorkManager
 import com.app.interfaces.repository.AuthRepository
 import com.app.interfaces.usecases.SplashUsecase
 import com.app.repositories.usecases.SplashUsecaseImp
+import com.app.repositories.utils.PreferencesHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,8 +18,8 @@ class SplashModule {
     @Provides
     @ViewModelScoped
     fun provideSplashUsecase(
-        authRepository: AuthRepository
+        preferencesHelper: PreferencesHelper
     ): SplashUsecase =
-        SplashUsecaseImp(authRepository)
+        SplashUsecaseImp(preferencesHelper)
 
 }

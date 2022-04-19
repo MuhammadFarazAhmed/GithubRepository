@@ -17,4 +17,6 @@ class SplashViewModel @Inject constructor(
 ) :
     BaseViewModel(application) {
     
+    fun isLoggedIn() = splashUsecase.isLoggedIn()
+    
 }
