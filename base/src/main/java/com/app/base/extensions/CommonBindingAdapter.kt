@@ -43,9 +43,9 @@ fun loadImageDrawable(
     if (image != null && image != 0) {
         requestBuilder = when (image) {
             is String -> if (image.startsWith("http://") || image.startsWith("https://")) {
-                requestManager.load(image)
+                requestManager.load(image.trim())
             } else {
-                requestManager.load("http://100.25.202.132/upm-api/public/$image")
+                requestManager.load(image)
             }
             is Uri -> requestManager.load(image as Uri?)
             is Drawable -> requestManager.load(image as Drawable?)

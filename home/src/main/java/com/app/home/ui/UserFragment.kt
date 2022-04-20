@@ -3,15 +3,11 @@ package com.app.home.ui
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.viewModels
 import com.app.base.extensions.hideProgress
 import com.app.base.extensions.showProgress
 import com.app.base.ui.BaseFragment
-import com.app.home.R
 import com.app.home.databinding.FragmentUserBinding
 import com.app.home.vm.UserViewModel
 import com.app.interfaces.models.common.ApiStatus
@@ -41,7 +37,7 @@ import dagger.hilt.android.AndroidEntryPoint
         binding = FragmentUserBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
 //        binding.callback = this
-//        binding.vm = vm
+        binding.vm = vm
         return binding.root
     }
     
@@ -67,9 +63,9 @@ import dagger.hilt.android.AndroidEntryPoint
             Log.d("TAG", "onViewCreated: $it")
         }
         
-        binding.bLogout.setOnClickListener {
-            vm.logout()
-        }
+//        binding.bLogout.setOnClickListener {
+//            vm.logout()
+//        }
     }
     
     companion object {
