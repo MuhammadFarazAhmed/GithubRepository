@@ -12,7 +12,7 @@ class BasePagingSource<Item : Any>(
         return try {
             // Start refresh at page 1 if undefined.
             val nextPage = params.key ?: 1
-            val response = apiFun(nextPage, 2)
+            val response = apiFun(nextPage, 10)
             
             LoadResult.Page(data = response,
                     prevKey = if (nextPage == 1) null else nextPage - 1,
