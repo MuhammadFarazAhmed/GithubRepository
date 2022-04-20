@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.app.base.vm.BaseViewModel
 import com.app.interfaces.models.User
-import com.app.interfaces.usecases.SignInUsecase
 import com.app.interfaces.usecases.UserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -15,6 +14,7 @@ import javax.inject.Inject
     BaseViewModel(application) {
     
     val user = MutableLiveData<User>()
+   
     
     fun getUserProfile() = Transformations.map(userUseCase.getUserProfile()) {
         it?.data?.let {

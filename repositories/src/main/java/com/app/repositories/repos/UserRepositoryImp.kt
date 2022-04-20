@@ -3,7 +3,8 @@ package com.app.repositories.repos
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.app.interfaces.base.ParseErrors
-import com.app.interfaces.models.*
+import com.app.interfaces.models.Repository
+import com.app.interfaces.models.User
 import com.app.interfaces.models.common.LiveResponse
 import com.app.interfaces.repository.UserRepository
 import com.app.repositories.remote.api.UserApi
@@ -20,6 +21,12 @@ class UserRepositoryImp constructor(private val api: UserApi,
                 it.data?.let { prefsHelper.saveUser(it) }
                 it
             }
+    
+    override suspend fun getUserRepos(page: Int, itemsPerPage: Int?): List<Repository>  =
+            api.getUserRepos(prefsHelper.user.value!!.login, page, itemsPerPage)
+    
+    override suspend fun getUserStarredRepos(page: Int, itemsPerPage: Int?): List<Repository> =
+            api.getUserStarredRepos(prefsHelper.user.value!!.login, page, itemsPerPage)
     
     override fun logout() {
         prefsHelper.removeAuth()

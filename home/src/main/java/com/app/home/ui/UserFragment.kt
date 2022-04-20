@@ -8,9 +8,11 @@ import androidx.fragment.app.viewModels
 import com.app.base.extensions.hideProgress
 import com.app.base.extensions.showProgress
 import com.app.base.ui.BaseFragment
+import com.app.home.adapter.RepoListingAdapter
 import com.app.home.databinding.FragmentUserBinding
 import com.app.home.vm.UserViewModel
 import com.app.interfaces.models.common.ApiStatus
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint class UserFragment : BaseFragment() {
@@ -18,6 +20,10 @@ import dagger.hilt.android.AndroidEntryPoint
     private lateinit var binding: FragmentUserBinding
     private val vm: UserViewModel by viewModels()
 //    private var callback: SigninCallback? = null
+    
+    private val viewPagerAdapter by lazy {
+        RepoListingAdapter(this)
+    }
     
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -43,6 +49,8 @@ import dagger.hilt.android.AndroidEntryPoint
     
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        
         vm.getUserProfile().observe(viewLifecycleOwner) {
             onLoading(it.isLoading)
             when (it.status) {
@@ -59,19 +67,21 @@ import dagger.hilt.android.AndroidEntryPoint
             }
         }
         
-        vm.user.observe(viewLifecycleOwner) {
-            Log.d("TAG", "onViewCreated: $it")
-        }
+        binding.pager.adapter = viewPagerAdapter
+        TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
+            Log.d("TAG", "onViewCreated: $position,$tab")
+            when (position) {
+                0 -> tab.text = "Your Repository,s"
+                1 -> tab.text = "Starred Repository,s"
+            }
+        }.attach()
         
-//        binding.bLogout.setOnClickListener {
-//            vm.logout()
-//        }
+        
+        
     }
     
     companion object {
         
-        @JvmStatic fun newInstance() = UserFragment().apply {
-        
-        }
+        @JvmStatic fun newInstance() = UserFragment()
     }
 }
