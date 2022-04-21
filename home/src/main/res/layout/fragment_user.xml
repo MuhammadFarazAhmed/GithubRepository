@@ -5,6 +5,10 @@
     <data>
 
         <variable
+            name="callback"
+            type="com.app.home.callback.UserfragmentViewCalllback" />
+
+        <variable
             name="vm"
             type="com.app.home.vm.UserViewModel" />
 
@@ -72,6 +76,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_medium"
+                    android:onClick="@{()->callback.onFollowersClicked()}"
                     android:text="@{String.valueOf(vm.user.followers) + `\n Followers`}"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -88,7 +93,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:clickable="true"
                     android:fontFamily="@font/poppins_medium"
+                    android:onClick="@{()->callback.onFollowingsClicked()}"
                     android:text="@{String.valueOf(vm.user.following) + `\n Followings`}"
                     android:textAlignment="center"
                     android:textColor="@color/black"

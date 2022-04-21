@@ -90,7 +90,7 @@ fun loadImageDrawable(
             )
     }
     // ?.transition(withCrossFade())
-    requestBuilder?.apply(options.placeholder(placeholderResId).error(errorResId))
+    requestBuilder?.apply(options.placeholder(placeholderResId).error(errorResId))?.dontAnimate()
         ?.into(imageView)
 }
 

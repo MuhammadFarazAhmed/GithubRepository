@@ -9,17 +9,19 @@ import com.app.base.extensions.hideProgress
 import com.app.base.extensions.showProgress
 import com.app.base.ui.BaseFragment
 import com.app.home.adapter.RepoListingAdapter
+import com.app.home.callback.UserFragmentCallback
+import com.app.home.callback.UserfragmentViewCalllback
 import com.app.home.databinding.FragmentUserBinding
 import com.app.home.vm.UserViewModel
 import com.app.interfaces.models.common.ApiStatus
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint class UserFragment : BaseFragment() {
+@AndroidEntryPoint class UserFragment : BaseFragment(), UserfragmentViewCalllback {
     
     private lateinit var binding: FragmentUserBinding
     private val vm: UserViewModel by viewModels()
-//    private var callback: SigninCallback? = null
+    private var callback: UserFragmentCallback? = null
     
     private val viewPagerAdapter by lazy {
         RepoListingAdapter(this)
@@ -27,9 +29,9 @@ import dagger.hilt.android.AndroidEntryPoint
     
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        if (context is SigninCallback) {
-//            callback = context
-//        }
+        if (context is UserFragmentCallback) {
+            callback = context
+        }
     }
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +44,7 @@ import dagger.hilt.android.AndroidEntryPoint
                               savedInstanceState: Bundle?): View {
         binding = FragmentUserBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-//        binding.callback = this
+        binding.callback = this
         binding.vm = vm
         return binding.root
     }
@@ -77,11 +79,18 @@ import dagger.hilt.android.AndroidEntryPoint
         }.attach()
         
         
-        
     }
     
     companion object {
         
         @JvmStatic fun newInstance() = UserFragment()
+    }
+    
+    override fun onFollowersClicked() {
+        takeIf { vm.user.value!!.followers != 0 }?.let { callback?.onFollowersClicked() }
+    }
+    
+    override fun onFollowingsClicked() {
+        takeIf { vm.user.value!!.following != 0 }?.let { callback?.onFollowingsClicked() }
     }
 }
