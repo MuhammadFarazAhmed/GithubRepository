@@ -4,10 +4,8 @@ import android.content.SharedPreferences
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.app.interfaces.models.AccessToken
 import com.app.interfaces.models.User
 import com.google.gson.Gson
-import org.joda.time.DateTime
 
 class PreferencesHelper
 constructor(private val prefs: SharedPreferences, private val gson: Gson) {

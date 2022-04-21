@@ -4,16 +4,19 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
 import com.app.base.extensions.hideProgress
 import com.app.base.extensions.showProgress
 import com.app.base.ui.BaseFragment
+import com.app.home.R
 import com.app.home.adapter.RepoListingAdapter
 import com.app.home.callback.UserFragmentCallback
 import com.app.home.callback.UserfragmentViewCalllback
 import com.app.home.databinding.FragmentUserBinding
 import com.app.home.vm.UserViewModel
 import com.app.interfaces.models.common.ApiStatus
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,6 +55,8 @@ import dagger.hilt.android.AndroidEntryPoint
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        initToolbar()
+        initCollapsingToolbar()
         
         vm.getUserProfile().observe(viewLifecycleOwner) {
             onLoading(it.isLoading)
@@ -61,6 +66,14 @@ import dagger.hilt.android.AndroidEntryPoint
                 }
                 ApiStatus.SUCCESS -> {
                     hideProgress()
+                    binding.pager.adapter = viewPagerAdapter
+                    TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
+                        Log.d("TAG", "onViewCreated: $position,$tab")
+                        when (position) {
+                            0 -> tab.text = "Your Repository,s"
+                            1 -> tab.text = "Starred Repository,s"
+                        }
+                    }.attach()
                 }
                 ApiStatus.ERROR -> {
                     hideProgress()
@@ -69,16 +82,38 @@ import dagger.hilt.android.AndroidEntryPoint
             }
         }
         
-        binding.pager.adapter = viewPagerAdapter
-        TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
-            Log.d("TAG", "onViewCreated: $position,$tab")
-            when (position) {
-                0 -> tab.text = "Your Repository,s"
-                1 -> tab.text = "Starred Repository,s"
+    }
+    
+    private fun initToolbar() {
+        binding.toolbar.inflateMenu(R.menu.main_menu)
+        binding.toolbar.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
+            Toolbar.OnMenuItemClickListener {
+            override fun onMenuItemClick(item: MenuItem): Boolean {
+                if (item.itemId == R.id.logout) {
+                    vm.logout()
+                    callback?.onLogout()
+                }
+                return false
             }
-        }.attach()
-        
-        
+        })
+    }
+    
+    private fun initCollapsingToolbar() {
+        var isShow = true
+        var scrollRange = -1
+        binding.appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { barLayout, verticalOffset ->
+            if (scrollRange == -1) {
+                scrollRange = barLayout?.totalScrollRange!!
+            }
+            if (scrollRange + verticalOffset == 0) {
+                binding.collapsingToolbarLayout.title = vm.user.value?.login
+                isShow = true
+            } else if (isShow) {
+                binding.collapsingToolbarLayout.title =
+                        " " //careful there should a space between double quote otherwise it wont work
+                isShow = false
+            }
+        })
     }
     
     companion object {

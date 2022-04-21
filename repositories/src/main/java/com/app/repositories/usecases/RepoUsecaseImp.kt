@@ -1,5 +1,6 @@
 package com.app.repositories.usecases
 
+import androidx.lifecycle.LiveData
 import androidx.paging.*
 import com.app.interfaces.models.Repository
 import com.app.interfaces.repository.RepoRepository
@@ -24,4 +25,7 @@ class RepoUsecaseImp constructor(private val repoRepository: RepoRepository) : B
                     repoRepository.getUserStarredRepos(page, itemsPerPage)
                 }
             }.flow.cachedIn(coroutineScope)
+    
+    override fun hasUser(): LiveData<Boolean> = repoRepository.hasUser()
+    
 }

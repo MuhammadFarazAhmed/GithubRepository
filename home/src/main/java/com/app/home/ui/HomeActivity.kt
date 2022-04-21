@@ -31,4 +31,9 @@ import dagger.hilt.android.AndroidEntryPoint
         navigator.startModule(this, Navigator.Modules.SEARCH)
     }
     
+    override fun onLogout() {
+        navigator.startModule(this, Navigator.Modules.AUTH)
+        finish()
+    }
+    
 }

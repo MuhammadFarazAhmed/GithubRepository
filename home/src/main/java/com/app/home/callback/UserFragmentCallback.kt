@@ -4,5 +4,6 @@ interface UserFragmentCallback {
     
     fun onFollowersClicked()
     fun onFollowingsClicked()
+    fun onLogout()
     
 }

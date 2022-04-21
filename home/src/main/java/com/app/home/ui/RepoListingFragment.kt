@@ -3,7 +3,6 @@ package com.app.home.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.base.adapters.PagingLoadStateAdapter
@@ -14,7 +13,6 @@ import com.app.home.databinding.FragmentRepoListingBinding
 import com.app.home.vm.RepoListViewModel
 import com.app.interfaces.models.Repository
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 private const val ARG_PARAM1 = "repo_type" //0 -> all 1 -> starred
 
@@ -47,12 +45,13 @@ private const val ARG_PARAM1 = "repo_type" //0 -> all 1 -> starred
         super.onViewCreated(view, savedInstanceState)
         
         initList()
-        lifecycleScope.launch {
-            loadRepos()
+        
+        vm.hasUser().observe(viewLifecycleOwner) {
+            if (it) loadRepos()
         }
     }
     
-    private suspend fun loadRepos() {
+    private fun loadRepos() {
         when (type) {
             "0" -> vm.getUserRepos()
             "1" -> vm.getUserStarredRepos()

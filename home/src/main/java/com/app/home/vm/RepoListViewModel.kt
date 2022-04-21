@@ -8,6 +8,7 @@ import com.app.base.vm.BaseViewModel
 import com.app.interfaces.models.Repository
 import com.app.interfaces.usecases.RepoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel class RepoListViewModel @Inject constructor(application: Application,
@@ -17,17 +18,23 @@ import javax.inject.Inject
     val repos = MutableLiveData<PagingData<Repository>>()
     val starredRepos = MutableLiveData<PagingData<Repository>>()
     
-    suspend fun getUserRepos() {
-        repoUseCase.getUserRepos(viewModelScope).collect {
-            repos.value = it
+    fun getUserRepos() {
+        viewModelScope.launch {
+            repoUseCase.getUserRepos(viewModelScope).collect {
+                repos.value = it
+            }
         }
     }
     
-    suspend fun getUserStarredRepos() {
-        repoUseCase.getUserStarredRepos(viewModelScope).collect {
-            starredRepos.value = it
+    fun getUserStarredRepos() {
+        viewModelScope.launch {
+            repoUseCase.getUserStarredRepos(viewModelScope).collect {
+                starredRepos.value = it
+            }
         }
     }
+    
+    fun hasUser() = repoUseCase.hasUser()
     
     
 }
