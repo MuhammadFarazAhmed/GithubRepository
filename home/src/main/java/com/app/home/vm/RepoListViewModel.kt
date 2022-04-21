@@ -6,25 +6,25 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import com.app.base.vm.BaseViewModel
 import com.app.interfaces.models.Repository
-import com.app.interfaces.usecases.UserUseCase
+import com.app.interfaces.usecases.RepoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel class RepoListChildViewModel @Inject constructor(application: Application,
-                                                                private val userUseCase: UserUseCase) :
+@HiltViewModel class RepoListViewModel @Inject constructor(application: Application,
+                                                           private val repoUseCase: RepoUseCase) :
     BaseViewModel(application) {
     
     val repos = MutableLiveData<PagingData<Repository>>()
     val starredRepos = MutableLiveData<PagingData<Repository>>()
     
     suspend fun getUserRepos() {
-        userUseCase.getUserRepos(viewModelScope).collect {
+        repoUseCase.getUserRepos(viewModelScope).collect {
             repos.value = it
         }
     }
     
     suspend fun getUserStarredRepos() {
-        userUseCase.getUserStarredRepos(viewModelScope).collect {
+        repoUseCase.getUserStarredRepos(viewModelScope).collect {
             starredRepos.value = it
         }
     }

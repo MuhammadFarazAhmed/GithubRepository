@@ -11,7 +11,7 @@
 
         <variable
             name="vm"
-            type="com.app.home.vm.RepoViewModel" />
+            type="com.app.home.vm.RepoItemViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

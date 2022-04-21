@@ -11,7 +11,7 @@ import com.app.base.callback.RecyclerViewCallback
 import com.app.base.ui.BaseFragment
 import com.app.home.adapter.RepoListAdapter
 import com.app.home.databinding.FragmentRepoListingBinding
-import com.app.home.vm.RepoListChildViewModel
+import com.app.home.vm.RepoListViewModel
 import com.app.interfaces.models.Repository
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ private const val ARG_PARAM1 = "repo_type" //0 -> all 1 -> starred
 @AndroidEntryPoint class RepoListingFragment : BaseFragment(), RecyclerViewCallback<Repository> {
     private var type: String? = null
     
-    private val vm: RepoListChildViewModel by viewModels()
+    private val vm: RepoListViewModel by viewModels()
     private lateinit var binding: FragmentRepoListingBinding
     
     override fun onCreate(savedInstanceState: Bundle?) {

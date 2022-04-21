@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.consoli.githubrepository">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".GithubApplication"
@@ -17,11 +17,7 @@
         <activity
             android:name="com.app.splash.ui.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 
@@ -43,7 +39,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.app.home.ui.HomeActivity"/>
+        <activity
+            android:name="com.app.home.ui.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.app.search.ui.SearchActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 

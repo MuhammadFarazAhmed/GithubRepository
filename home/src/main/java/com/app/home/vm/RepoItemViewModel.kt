@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.app.interfaces.models.Repository
 
 
-class RepoViewModel constructor(private val context: Context) : ViewModel() {
+class RepoItemViewModel constructor(private val context: Context) : ViewModel() {
     lateinit var item: Repository
     val name = ObservableField("")
     

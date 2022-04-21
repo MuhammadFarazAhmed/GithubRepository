@@ -13,7 +13,7 @@ interface Navigator {
     )
 
     enum class Modules {
-        SPLASH, ONBOARDING, HOME, AUTH, PROFILE_SETTINGS, CHAT, QRCODE
+        SPLASH, ONBOARDING, HOME, AUTH, SEARCH, CHAT, QRCODE
     }
 
     companion object {

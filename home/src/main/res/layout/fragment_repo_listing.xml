@@ -5,7 +5,7 @@
 
         <variable
             name="vm"
-            type="com.app.home.vm.RepoListChildViewModel" />
+            type="com.app.home.vm.RepoListViewModel" />
 
     </data>
 

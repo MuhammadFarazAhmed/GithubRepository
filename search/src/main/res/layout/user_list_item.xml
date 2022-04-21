@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cb"
+            type="com.app.base.callback.RecyclerViewItemCallback" />
+
+        <variable
+            name="vm"
+            type="com.app.search.vm.UserItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:onClick="@{()->cb.onListItemClicked(vm.item)}"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/TextAppearance.MyTheme.List.Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.name}"
+                tools:text="KFC Mughalpura" />
+
+            <TextView
+                android:id="@+id/tvOrgName"
+                style="@style/TextAppearance.MyTheme.List.Heading2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvName"
+                android:text="@{vm.orgName}"
+                tools:text="KFC" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                style="@style/TextAppearance.MyTheme.List.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvOrgName"
+                android:layout_marginTop="6dp"
+                android:drawablePadding="6dp"
+                android:text="@{vm.address}"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_outline_location_on_24"
+                app:drawableTint="@color/subtext_color_with_light_bg"
+                tools:drawableStart="@drawable/ic_outline_location_on_24"
+                tools:text="Singpura stop GT road Mughalpura Lahore" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDesc"
+                style="@style/TextAppearance.MyTheme.List.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvAddress"
+                android:layout_marginTop="4dp"
+                android:visibility="gone"
+                android:drawablePadding="6dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:text="@{vm.description}"
+                app:drawableStartCompat="@drawable/ic_outline_call_24"
+                app:drawableTint="@color/subtext_color_with_light_bg"
+                tools:text="0423-423212312" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

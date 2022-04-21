@@ -142,4 +142,5 @@ dependencies {
     api project(':splash')
     api project(':auth')
     api project(':home')
+    api project(':search')
 }

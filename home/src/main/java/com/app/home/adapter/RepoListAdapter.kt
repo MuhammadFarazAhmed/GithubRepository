@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.base.callback.RecyclerViewCallback
 import com.app.base.callback.RecyclerViewItemCallback
 import com.app.home.databinding.RepoListItemBinding
-import com.app.home.vm.RepoViewModel
+import com.app.home.vm.RepoItemViewModel
 import com.app.interfaces.models.Repository
 
 class RepoListAdapter(
@@ -31,7 +31,7 @@ class RepoListAdapter(
 
     inner class RepoItemHolder(binding: RepoListItemBinding) :
         RecyclerView.ViewHolder(binding.root), RecyclerViewItemCallback<Repository> {
-        private val vm = RepoViewModel(binding.root.context)
+        private val vm = RepoItemViewModel(binding.root.context)
 
         init {
             binding.cb = this
